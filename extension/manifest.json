@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Dataset Walkthrough Guide",
+  "version": "1.0",
+  "description": "Adds an interactive walkthrough guide",
+  "permissions": ["activeTab"],
+  "content_scripts": [{
+    "matches": ["<your-website-url>/*"],
+    "css": ["styles.css"],
+    "js": ["walkthrough.js", "content.js"]
+  }]
+}
