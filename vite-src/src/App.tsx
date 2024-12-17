@@ -1,34 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from 'react'
+import { Box, Button, Paper, Typography } from '@mui/material'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [position, setPosition] = useState({ x: 0, y: 0 })
 
+  useEffect(() => {
+    const targetNode = document.querySelector('.css-106ak42');
+    if (targetNode) {
+      const rect = targetNode.getBoundingClientRect()
+      setPosition({ x: rect.left, y: rect.top })
+    }
+  }, [])
+  
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Box
+      sx={{
+        position: 'absolute',
+        left: position.x,
+        top: position.y - 80, // Position above the node-card
+        zIndex: 9999
+      }}
+    >
+      <Paper elevation={3} sx={{ p: 2, maxWidth: 300 }}>
+        <Typography variant="h6">Welcome to Dataset Node!</Typography>
+        <Typography variant="body2">
+          This is where you can configure your dataset settings and preview your data.
+        </Typography>
+        <Button variant="contained" sx={{ mt: 2 }}>
+          Next
+        </Button>
+      </Paper>
+    </Box>
   )
 }
 

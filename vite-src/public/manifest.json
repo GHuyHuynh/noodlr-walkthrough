@@ -6,7 +6,11 @@
   "permissions": ["activeTab"],
   "content_scripts": [{
     "matches": ["https://app.noodlr.ai/*"],
-    "css": ["styles.css"],
-    "js": ["walkthrough.js", "content.js"]
+    "css": ["assets/main.css"],
+    "js": ["assets/main.js"]
+  }],
+  "web_accessible_resources": [{
+    "resources": ["assets/*"],
+    "matches": ["https://app.noodlr.ai/*"]
   }]
 }
