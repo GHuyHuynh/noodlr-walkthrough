@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Dataset Walkthrough Guide",
-  "version": "1.0",
-  "description": "Adds an interactive walkthrough guide",
+  "name": "Noodlr Walkthrough",
+  "version": "0.1.0",
+  "description": "Adds an interactive walkthrough guide for noodlr.ai",
   "permissions": ["activeTab"],
   "content_scripts": [{
     "matches": ["https://app.noodlr.ai/*"],
