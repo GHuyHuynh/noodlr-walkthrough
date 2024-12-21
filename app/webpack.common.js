@@ -1,10 +1,11 @@
 const path = require('path');
 const CopyPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { optimize } = require('webpack');
 
 module.exports = {
   entry: {
-    contentScript: path.resolve('src/contentScript.tsx'),
+    contentScript: path.resolve('src/index.tsx'),
   },
   module: {
     rules: [
@@ -39,5 +40,12 @@ module.exports = {
   output: {
     filename: 'contentScript.js',
     path: path.resolve('dist'),
+  },
+  optimization: {
+    splitChunks: {
+      chunks(chunk) {
+        return chunk.name !== 'contentScript';
+      }
+    }
   }
 };
