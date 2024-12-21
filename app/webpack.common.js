@@ -3,8 +3,9 @@ const CopyPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
-  entry: path.resolve('src/app.tsx'),
+  entry: {
+    contentScript: path.resolve('src/contentScript.tsx'),
+  },
   module: {
     rules: [
       {
