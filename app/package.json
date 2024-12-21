@@ -1,0 +1,23 @@
+{
+  "name": "noodlr-walkthrough",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --watch --progress --config webpack.config.js"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "ts-loader": "^9.5.1"
+  },
+  "dependencies": {
+    
+  }
+}
