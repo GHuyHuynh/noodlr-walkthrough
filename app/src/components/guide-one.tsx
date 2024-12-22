@@ -46,8 +46,13 @@ export function GuideOne({ position }: GuideOneProps) {
   return (
     <div>
       <Button onClick={handleOpen}>
-        <PlayArrowIcon />
         Start Here
+        <PlayArrowIcon 
+          sx={{ 
+            marginLeft: 1,
+            transform: 'rotate(180deg)' 
+          }} 
+        />
       </Button>
       <Modal
         open={open}
@@ -57,10 +62,10 @@ export function GuideOne({ position }: GuideOneProps) {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h6">
-            Select Titanic Survival Predictor
+            Titanic Survival Predictor
           </Typography>
             <Typography id="modal-modal-description" sx={{ mt: 2 }} component="p">
-            Titanic Survival Predictor predicts the likelihood of survival based on various factors. Click on the elements to see the details.
+            Titanic Survival Predictor predicts the likelihood of survival based on various factors. Double click on the elements to see the details.
             </Typography>
         </Box>
       </Modal>
