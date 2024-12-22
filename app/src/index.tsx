@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { ContentScript } from './components/contentScript';
+import { GuideOne } from './components/guide-one';
 
 function init() {
-  const appContainer = document.createElement('div');
-  if (!appContainer) {
-    throw new Error('Failed to create app container');
+  // Select Iris Classifier element
+  const irisSelectElements = document.querySelectorAll('.css-5gmxj4');
+  const targetElement = Array.from(irisSelectElements).find(el => 
+    el.textContent?.includes('Iris Classifier')
+  );
+  if (!targetElement) {
+    throw new Error('Failed to find Iris Classifier element');
   }
 
-  document.body.appendChild(appContainer);
-  const root = createRoot(appContainer);
-  root.render(<ContentScript />);
+
+  const appContainer = document.createElement('div');
+  targetElement.appendChild(appContainer);
+  const widget = createRoot(appContainer);
+  widget.render(<GuideOne />);
 }
 
 init();
