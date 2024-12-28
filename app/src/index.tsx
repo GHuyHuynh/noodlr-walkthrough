@@ -2,6 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { GuideOne } from './components/guide-one';
 import { GuideTwo } from './components/guide-two';
+import { GuideThree } from './components/guide-three';
 
 /**
  * Script to start the guide
@@ -9,7 +10,7 @@ import { GuideTwo } from './components/guide-two';
  */
   
 function startGuideOne() {
-  // Select Iris Classifier element
+  // Get Iris Classifier element
   const titanicSelectElements = document.querySelectorAll(".css-5gmxj4");
   const targetElement = Array.from(titanicSelectElements).find(el => 
     el.textContent?.includes('Titanic Survival Predictor')
@@ -36,7 +37,7 @@ function startGuideOne() {
 }
 
 function startGuideTwo() {
-  // Select Collapse button element
+  // Get Collapse button element
   const collapseButton = document.querySelector('.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeSmall.css-oofez5');
   if (!collapseButton) {
     throw new Error('Failed to find Collapse button element');
@@ -55,7 +56,32 @@ function startGuideTwo() {
 
   collapseButton.addEventListener('click', () => {
     widget.unmount();
+    startGuideThree();
   });
+}
+
+function startGuideThree() {
+  // Get the canvas from the DOM
+  const canvasViewport = document.querySelector('.canvas-target-ref');
+  if (!canvasViewport) {
+    throw new Error('Failed to find canvas viewport');
+  }
+
+  // Get the Training node from the DOM
+  const trainingNode = Array.from(document.querySelectorAll('.css-106ak42')).find(el => 
+    el.querySelector('.layer-header .title')?.textContent?.includes('Training')
+  );
+  if (!trainingNode) {
+    throw new Error('Failed to find Training Node element');
+  }
+
+  // Get positions
+  const viewportRect = canvasViewport.getBoundingClientRect();
+  const nodeRect = trainingNode.getBoundingClientRect();
+  const scrollLeft = nodeRect.left - viewportRect.left + canvasViewport.scrollLeft;
+
+  // Scroll to the Training node
+  canvasViewport.scrollLeft = scrollLeft;
 }
 
 // Start the guide
