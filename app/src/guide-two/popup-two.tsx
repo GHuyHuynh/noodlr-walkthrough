@@ -6,11 +6,11 @@ type Position = {
   right: number;
 }
 
-type GuideTwoProps = {
+type PopupTwoProps = {
   position: Position;
 }
 
-export function GuideTwo({ position }: GuideTwoProps) {
+export function PopupTwo({ position }: PopupTwoProps) {
   const [open, setOpen] = React.useState(true);
   const handleClose = () => setOpen(false);
 
