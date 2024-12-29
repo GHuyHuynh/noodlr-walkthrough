@@ -1,4 +1,5 @@
 import React from 'react';
+import { smoothScroll } from './animations/animations';
 import { createRoot } from 'react-dom/client';
 import { GuideOne } from './components/guide-one';
 import { GuideTwo } from './components/guide-two';
@@ -61,13 +62,11 @@ function startGuideTwo() {
 }
 
 function startGuideThree() {
-  // Get the canvas from the DOM
   const canvasViewport = document.querySelector('.canvas-target-ref');
   if (!canvasViewport) {
     throw new Error('Failed to find canvas viewport');
   }
 
-  // Get the Training node from the DOM
   const trainingNode = Array.from(document.querySelectorAll('.css-106ak42')).find(el => 
     el.querySelector('.layer-header .title')?.textContent?.includes('Training')
   );
@@ -78,10 +77,19 @@ function startGuideThree() {
   // Get positions
   const viewportRect = canvasViewport.getBoundingClientRect();
   const nodeRect = trainingNode.getBoundingClientRect();
-  const scrollLeft = nodeRect.left - viewportRect.left + canvasViewport.scrollLeft;
+  const scrollValue = nodeRect.left - viewportRect.left + canvasViewport.scrollLeft;
 
-  // Scroll to the Training node
-  canvasViewport.scrollLeft = scrollLeft;
+  // Smooth scroll animation
+  const duration = 2000;
+  const startValue = canvasViewport.scrollLeft;
+
+  smoothScroll(canvasViewport, startValue, scrollValue, duration).then(() => {
+    const appContainer = document.createElement('div');
+    trainingNode.appendChild(appContainer);
+    const widget = createRoot(appContainer);
+    //widget.render(<GuideThree/>);
+  }
+  );
 }
 
 // Start the guide
