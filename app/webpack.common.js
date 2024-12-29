@@ -5,7 +5,7 @@ const { optimize } = require('webpack');
 
 module.exports = {
   entry: {
-    contentScript: path.resolve('src/index.tsx'),
+    contentScript: path.resolve('src/index.ts'),
   },
   module: {
     rules: [
