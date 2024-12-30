@@ -21,11 +21,11 @@ export function PopupThree({ position }: PopupThreeProps) {
     left: position.left + (position.width || 0),
     transform: 'translate(20px, -50%)',
     width: 200,
-    height: 70,
+    height: 80,
     bgcolor: 'background.paper',
     borderRadius: 4,
     boxShadow: 24,
-    p: 4,
+    p: 3,
 
     // arrow styles
     '&:after': {

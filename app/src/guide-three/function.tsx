@@ -2,6 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { PopupThree } from './popup-three';
 import { smoothScroll } from '../animations/animations';
+import { startGuideFour } from '../guide-four/function';
 
 export function startGuideThree() {
   const canvasViewport = document.querySelector('.canvas-target-ref');
@@ -14,6 +15,11 @@ export function startGuideThree() {
   );
   if (!trainingNode) {
     throw new Error('Failed to find Training Node element');
+  }
+
+  const playButton = trainingNode.querySelector('.layer-header .control[aria-label="Train Model"]');
+  if (!playButton) {
+    throw new Error('Failed to find play button');
   }
 
   // Initial scroll calculation
@@ -41,5 +47,10 @@ export function startGuideThree() {
     trainingNode.appendChild(appContainer);
     const widget = createRoot(appContainer);
     widget.render(<PopupThree position={position} />);
+
+    playButton.addEventListener('click', () => {
+      widget.unmount();
+      startGuideFour();
+    });
   });
 }
