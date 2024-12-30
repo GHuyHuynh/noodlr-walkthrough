@@ -50,7 +50,9 @@ export function startGuideThree() {
 
     playButton.addEventListener('click', () => {
       widget.unmount();
-      startGuideFour();
+      setTimeout(() => {
+        startGuideFour();
+      }, 200);
     });
   });
 }
