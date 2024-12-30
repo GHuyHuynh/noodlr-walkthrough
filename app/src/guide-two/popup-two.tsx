@@ -34,8 +34,8 @@ export function PopupTwo({ position }: PopupTwoProps) {
       transform: 'translateY(-50%)',
       width: 0,
       height: 0,
-      borderRight: '10px solid #fff', // Change from borderLeft to borderRight
-      borderLeft: '10px solid transparent', // Change from borderRight to borderLeft
+      borderRight: '10px solid #fff',
+      borderLeft: '10px solid transparent',
       borderTop: '10px solid transparent',
       borderBottom: '10px solid transparent'
     }

@@ -16,19 +16,30 @@ export function startGuideThree() {
     throw new Error('Failed to find Training Node element');
   }
 
-  // Get positions
+  // Initial scroll calculation
   const viewportRect = canvasViewport.getBoundingClientRect();
   const nodeRect = trainingNode.getBoundingClientRect();
   const scrollValue = nodeRect.left - viewportRect.left + canvasViewport.scrollLeft;
 
-  // Smooth scroll animation
+  // Start scroll animation
   const duration = 2000;
   const startValue = canvasViewport.scrollLeft;
 
   smoothScroll(canvasViewport, startValue, scrollValue, duration).then(() => {
+    // Get updated positions after scroll
+    const updatedNodeRect = trainingNode.getBoundingClientRect();
+    
+    const position = {
+      top: updatedNodeRect.top,
+      left: updatedNodeRect.left,
+      right: updatedNodeRect.right,
+      width: updatedNodeRect.width,
+      height: updatedNodeRect.height
+    };
+
     const appContainer = document.createElement('div');
     trainingNode.appendChild(appContainer);
     const widget = createRoot(appContainer);
-    widget.render(<PopupThree/>);
+    widget.render(<PopupThree position={position} />);
   });
 }
