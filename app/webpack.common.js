@@ -13,7 +13,7 @@ module.exports = {
         use: 'ts-loader',
         test: /\.(tsx|ts)$/,
         exclude: /node_modules/,
-      }
+      },
     ],
   },
   plugins: [

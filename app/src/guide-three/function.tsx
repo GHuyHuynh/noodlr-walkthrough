@@ -44,7 +44,7 @@ export function startGuideThree() {
     };
 
     const appContainer = document.createElement('div');
-    trainingNode.appendChild(appContainer);
+    document.body.appendChild(appContainer);
     const widget = createRoot(appContainer);
     widget.render(<PopupThree position={position} />);
 
