@@ -1,7 +1,6 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import { keyframes, css } from '@emotion/react';
+import { keyframes } from '@emotion/react';
 import { css as emotionCss } from '@emotion/css';
+import { startGuideFive } from '../guide-five/function';
 
 /* Style from Uiverse.io at Wendell47 */ 
 const effectAnimation = keyframes`
@@ -87,13 +86,6 @@ export function startGuideFour() {
     throw new Error('Could not find OK button');
   }
 
-  const rect = okButton.getBoundingClientRect();
-  const position = {
-    top: rect.top,
-    left: rect.left,
-    width: rect.width
-  };
-
   okButton.textContent = 'Start Training';
 
   okButton.className = '';
@@ -106,7 +98,7 @@ export function startGuideFour() {
   hoverEffect.appendChild(hoverEffectInner);
   okButton.appendChild(hoverEffect);
 
-  const appContainer = document.createElement('div');
-  okButton.appendChild(appContainer);
-  const widget = createRoot(appContainer);
+  okButton.addEventListener('click', () => {    
+    startGuideFive();
+  });
 }
