@@ -1,6 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { PopupFive } from './popup-five';
+import { startGuideSix } from '../guide-six/function';
 
 export function startGuideFive() {
   const consoleExpand = document.querySelector(
@@ -23,7 +24,7 @@ export function startGuideFive() {
 
   consoleExpand.addEventListener('click', () => {
     widget.unmount();
-    // startGuideSix();
+    startGuideSix();
   });
 
 }
