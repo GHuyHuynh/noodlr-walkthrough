@@ -16,12 +16,10 @@ export function StartCompletePopup() {
   // Add click handlers to both elements
   buildAppButton.addEventListener('click', (e) => {
     console.log('Build app button clicked');
-    e.stopPropagation();
   });
 
   deployedCodeSpan.addEventListener('click', (e) => {
     console.log('Deployed code span clicked');
-    e.stopPropagation();
   });
 
 

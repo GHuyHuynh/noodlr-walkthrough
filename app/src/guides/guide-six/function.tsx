@@ -1,7 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { PopupSix } from './popup-six';
-import { StartCompletePopup } from '../complete-popup/function';
+import { StartCompletePopup } from '../guide-seven/function';
 
 function handlePopup() {
   const buildAppButton = document.querySelector('button[aria-label="icon-copy"]');

@@ -1,4 +1,4 @@
-import { startGuideOne } from './guide-one/function';
+import { startGuideOne } from './guides/guide-one/function';
 
 // Start the guide
 function init() {

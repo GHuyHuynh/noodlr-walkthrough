@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
-import { Hightlight } from '../components/hightlight';
+import { Hightlight } from '../../components/hightlight';
 
 // Position of the titanic selector element
 type Position = {

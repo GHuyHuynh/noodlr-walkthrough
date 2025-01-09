@@ -1,7 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { PopupThree } from './popup-three';
-import { smoothScroll } from '../animations/animations';
+import { smoothScroll } from '../../animations/animations';
 import { startGuideFour } from '../guide-four/function';
 
 export function startGuideThree() {
