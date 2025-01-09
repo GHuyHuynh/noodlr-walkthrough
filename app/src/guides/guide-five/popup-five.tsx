@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Modal, Typography } from '@mui/material';
+import { Highlight } from '../../components/highlight';
 
 type PopupFiveProps = {
   position: {
@@ -48,11 +49,21 @@ export function PopupFive({ position }: PopupFiveProps) {
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
-      <Box sx={style}>
-        <Typography id="modal-modal-description" component="p" fontSize="medium">
-          Manage your local AI models in the console below
-        </Typography>
-      </Box>
+      <>
+        <Highlight
+          position={position}
+          width={30}
+          height={30}
+          type="circle"
+          translateTop={-5}
+          translateLeft={-5}
+        />
+        <Box sx={style}>
+          <Typography id="modal-modal-description" component="p" fontSize="medium">
+            Manage your local AI models in the console below
+          </Typography>
+        </Box>
+      </>
     </Modal>
   )
 }

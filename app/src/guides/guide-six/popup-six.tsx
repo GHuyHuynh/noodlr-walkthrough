@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Modal, Typography } from '@mui/material';
+import { Highlight } from '../../components/highlight';
 
 type PopupSixProps = {
   position: {
@@ -45,11 +46,21 @@ export function PopupSix({ position }: PopupSixProps) {
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
-      <Box sx={style}>
-        <Typography id="modal-modal-description" component="p" fontSize="medium">
-          Your AI model is ready! Lets build your model application and try it out! 🚀
-        </Typography>
-      </Box>
+      <>
+        <Highlight
+          position={position}
+          width={30}
+          height={30}
+          type="circle"
+          translateTop={5}
+          translateLeft={85}
+        />
+        <Box sx={style}>
+          <Typography id="modal-modal-description" component="p" fontSize="medium">
+            Your AI model is ready! Lets build your model application and try it out! 🚀
+          </Typography>
+        </Box>
+      </>
     </Modal>
   );
 }
