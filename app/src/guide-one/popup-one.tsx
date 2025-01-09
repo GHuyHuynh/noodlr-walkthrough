@@ -5,6 +5,8 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
+import { Hightlight } from '../components/hightlight';
+
 // Position of the titanic selector element
 type Position = {
   top: number;
@@ -60,20 +62,30 @@ export function PopupOne({ position }: PopupOneProps) {
         />
         Let's create your first model!
       </Button>
+
       <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h6" fontSize="medium">
-            Titanic Survival Predictor
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }} component="p" fontSize="small">
-            Titanic Survival Predictor predicts the likelihood of survival based on various factors. Double click on the elements to see the details.
-          </Typography>
-        </Box>
+        <>
+          <Hightlight 
+            position={position}
+            width={150}
+            height={40}
+            type='rectangle'
+          />
+
+          <Box sx={style}>
+            <Typography id="modal-modal-title" variant="h6" component="h6" fontSize="medium">
+              Titanic Survival Predictor
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }} component="p" fontSize="small">
+              Titanic Survival Predictor predicts the likelihood of survival based on various factors. Double click on the elements to see the details.
+            </Typography>
+          </Box>
+        </>
       </Modal>
     </div>
   );
