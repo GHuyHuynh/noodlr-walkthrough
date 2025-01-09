@@ -1,8 +1,9 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { PopupSix } from './popup-six';
+import { StartCompletePopup } from '../complete-popup/function';
 
-function handleStatusBox() {
+function handlePopup() {
   const buildAppButton = document.querySelector('button[aria-label="icon-copy"]');
 
   if (!buildAppButton) {
@@ -20,14 +21,11 @@ function handleStatusBox() {
   const widget = createRoot(appContainer);
   widget.render(<PopupSix position={position}/>);
 
-  buildAppButton.addEventListener('click', () => {
-    widget.unmount();
-    console.log('build button clicked');
-  });
+  StartCompletePopup();
 }
 
 function observeStatusBox(callbackFunction: () => void): MutationObserver {
-  const observer = new MutationObserver((mutations) => {
+  const observer = new MutationObserver(() => {
     const statusBox = document.querySelector(
       '.MuiDataGrid-cell[data-field="status"] .icon.complete'
     );
@@ -47,8 +45,7 @@ export function startGuideSix() {
     subtree: true
   };
 
-  const observer = observeStatusBox(handleStatusBox);
-
+  const observer = observeStatusBox(handlePopup);
   // Start observing the document body
   observer.observe(document.body, observerConfig);
   
