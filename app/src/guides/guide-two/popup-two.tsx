@@ -1,9 +1,12 @@
 import React from 'react';
 import { Box, Modal, Typography } from '@mui/material';
+import { Highlight } from '../../components/highlight';
 
 type Position = {
   middle: number;
   right: number;
+  top: number;
+  left: number;
 }
 
 type PopupTwoProps = {
@@ -48,11 +51,21 @@ export function PopupTwo({ position }: PopupTwoProps) {
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
-      <Box sx={style}>
-        <Typography id="modal-modal-description" component="p" fontSize="small">
-          Collapse the panel and explore the model pipeline
-        </Typography>
-      </Box>
+      <>
+        <Highlight 
+          position={{ top: position.top, left: position.left }} 
+          width={50} 
+          height={50} 
+          type="circle"
+          translateTop={-8}
+          translateLeft={-8}
+        />
+        <Box sx={style}>
+          <Typography id="modal-modal-description" component="p" fontSize="small">
+            Collapse the panel and explore the model pipeline
+          </Typography>
+        </Box>
+      </>
     </Modal>
   );
 }

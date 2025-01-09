@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Modal, Typography } from '@mui/material';
+import { Highlight } from '../../components/highlight';
 
 type PopupThreeProps = {
   position: {
@@ -49,11 +50,21 @@ export function PopupThree({ position }: PopupThreeProps) {
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
-      <Box sx={style}>
-        <Typography id="modal-modal-description" component="p" fontSize="medium">
-          Click the play button and train your first AI model all locally on your browser!
-        </Typography>
-      </Box>
+      <>
+        <Highlight
+          position={{ top: position.top, left: position.left }}
+          width={30}
+          height={30}
+          type="circle"
+          translateTop={1}
+          translateLeft={168}
+        />
+        <Box sx={style}>
+          <Typography id="modal-modal-description" component="p" fontSize="medium">
+            Click the play button and train your first AI model all locally on your browser!
+          </Typography>
+        </Box>
+      </>
     </Modal>
   )
 }

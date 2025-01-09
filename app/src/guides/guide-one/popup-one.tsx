@@ -4,8 +4,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-
-import { Hightlight } from '../../components/hightlight';
+import { Highlight } from '../../components/highlight';
 
 // Position of the titanic selector element
 type Position = {
@@ -70,13 +69,14 @@ export function PopupOne({ position }: PopupOneProps) {
         aria-describedby="modal-modal-description"
       >
         <>
-          <Hightlight 
+          <Highlight 
             position={position}
             width={150}
             height={40}
             type='rectangle'
+            translateTop={10}
+            translateLeft={0}
           />
-
           <Box sx={style}>
             <Typography id="modal-modal-title" variant="h6" component="h6" fontSize="medium">
               Titanic Survival Predictor

@@ -13,7 +13,9 @@ export function startGuideTwo() {
   const rect = collapseButton.getBoundingClientRect();
   const position = {
     middle: rect.top + rect.height / 2,
-    right: rect.right
+    right: rect.right,
+    top: rect.top,
+    left: rect.left
   };
 
   const appContainer = document.createElement('div');
