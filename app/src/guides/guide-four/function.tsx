@@ -2,6 +2,9 @@ import { keyframes } from '@emotion/react';
 import { css as emotionCss } from '@emotion/css';
 import { startGuideFive } from '../guide-five/function';
 
+// No popup for guide 5 since a modal ontop of a modal will cause JS stack error
+// Change into a fancy button to caught user attention
+
 /* Style from Uiverse.io at Wendell47 */ 
 const effectAnimation = keyframes`
   0% {

@@ -4,7 +4,7 @@ import { PopupOne } from './popup-one';
 import { startGuideTwo } from '../guide-two/function';
 
 export function startGuideOne() {
-  // Get Iris Classifier element
+  // Get Titanic Suvivor element
   const titanicSelectElements = document.querySelectorAll(".css-5gmxj4");
   const selectorElement = Array.from(titanicSelectElements).find(el => 
     el.textContent?.includes('Titanic Survival Predictor')

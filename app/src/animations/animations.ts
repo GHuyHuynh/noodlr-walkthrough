@@ -1,3 +1,12 @@
+/**
+ * Scroll function to bring node into view
+ * @param viewport -> node building canvas viewport
+ * @param startValue -> start value of the scroll 
+ * @param endValue -> end value of the scroll
+ * @param duration -> duration of the scroll
+ * @returns Promise<void> -> resolves when the scroll animation is completed
+ */
+
 export function smoothScroll(
   viewport: Element, 
   startValue: number, 

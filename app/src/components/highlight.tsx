@@ -1,3 +1,9 @@
+/**
+ * Highlight component
+ * Create a circle or rectangle highlight on the screen to highlight a specific area
+ * Use for creating a spotlight effect on a specific area of the screen
+ */
+
 /** @jsxImportSource @emotion/react */
 import React from "react"
 import { css as emotionCss } from "@emotion/react";
@@ -7,6 +13,14 @@ type Position = {
   left: number;
 }
 
+/**
+ * @param position -> The position of the element to highlight from the DOM
+ * @param width -> The width of the highlight
+ * @param height -> The height of the highlight
+ * @param type -> The type of highlight to create (circle or rectangle)
+ * @param translateTop -> The amount to translate the highlight from the top
+ * @param translateLeft -> The amount to translate the highlight from the left
+ */
 type HighlightProps = {
   position: Position;
   width: number;
@@ -16,6 +30,7 @@ type HighlightProps = {
   translateLeft: number;
 };
 
+// Base CSS styles for the highlight
 const baseStyles = (
   position: HighlightProps['position'],
   width: number,

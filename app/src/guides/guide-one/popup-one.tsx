@@ -5,14 +5,12 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { Highlight } from '../../components/highlight';
 
-// Position of the titanic selector element
-type Position = {
-  top: number;
-  left: number;
-}
-
 type PopupOneProps = {
-  position: Position;
+  // The position of the selector element from the DOM
+  position: {
+    top: number;
+    left: number;
+  }
 }
 
 export function PopupOne({ position }: PopupOneProps) {

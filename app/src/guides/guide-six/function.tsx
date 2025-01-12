@@ -3,7 +3,14 @@ import { createRoot } from 'react-dom/client';
 import { PopupSix } from './popup-six';
 import { startCompletePopup } from '../guide-seven/function';
 
+/**
+ * Handle the popup for guide six
+ * Seperate function since it will be call by the observer
+ * Consider this the main function of guide six
+ */
 function handlePopup() {
+  // The button contain the span as it children component
+  // Click only register on the span element
   const buildAppButton = document.querySelector('button[aria-label="icon-copy"]');
   if (!buildAppButton) {
     throw new Error('Could not find export button');
@@ -34,6 +41,11 @@ function handlePopup() {
   });
 }
 
+/**
+ * Observer the status box to become a checkmark to trigger the popup
+ * @param callbackFunction -> call function when the status box is a checkmark
+ * @returns void
+ */
 function observeStatusBox(callbackFunction: () => void): MutationObserver {
   const observer = new MutationObserver(() => {
     const statusBox = document.querySelector(

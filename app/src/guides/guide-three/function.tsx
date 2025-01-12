@@ -22,9 +22,16 @@ export function startGuideThree() {
     throw new Error('Failed to find play button');
   }
 
+  // Since the training node is out of view
+  // Scroll animation is added to bring the node into view
+
   // Initial scroll calculation
   const viewportRect = canvasViewport.getBoundingClientRect();
   const nodeRect = trainingNode.getBoundingClientRect();
+
+  // Calculate the scroll value
+  // In this instance, the trainingNode rect which is on the far right
+  // Then subtract the viewport rect to get the distance between the two
   const scrollValue = nodeRect.left - viewportRect.left + canvasViewport.scrollLeft;
 
   // Start scroll animation
@@ -50,6 +57,7 @@ export function startGuideThree() {
 
     playButton.addEventListener('click', () => {
       widget.unmount();
+      // Wait for the Modal to appear
       setTimeout(() => {
         startGuideFour();
       }, 200);

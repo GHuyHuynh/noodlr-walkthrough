@@ -2,6 +2,10 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { CongratsPopup } from "./congrats-popup";
 
+/**
+ * Final function to end the guide
+ */
+
 export function startCompletePopup() {
   const downloadButton = document.querySelector(
     'button.MuiButton-containedPrimary[aria-label*="download"]'

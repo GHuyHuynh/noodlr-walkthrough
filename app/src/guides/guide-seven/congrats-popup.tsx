@@ -3,6 +3,11 @@ import Snackbar from '@mui/material/Snackbar';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
+/** 
+ * Final popup to congratulate the user on creating their first AI model with Noodlr
+ * 
+ */
+
 export function CongratsPopup() {
   const [open, setOpen] = React.useState(true);
 
@@ -23,6 +28,7 @@ export function CongratsPopup() {
 
   return (
     <Box sx={{ width: 500 }}>
+      {/* Using Snackbar instead of Modal to void Modal on top of Modal that will cause JS stack problem */}
       <Snackbar
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
         open={open}

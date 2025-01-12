@@ -4,6 +4,7 @@ import { PopupFive } from './popup-five';
 import { startGuideSix } from '../guide-six/function';
 
 export function startGuideFive() {
+  // Bottom console expand button
   const consoleExpand = document.querySelector(
     '.button-container .icon.expand.material-symbols-outlined.filled'
   );
