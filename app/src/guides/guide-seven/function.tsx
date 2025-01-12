@@ -1,26 +1,19 @@
 import React from "react";
-import { css as emotionCss } from "@emotion/react";
-import { keyframes } from "@emotion/react";
+import { createRoot } from "react-dom/client";
+import { CongratsPopup } from "./congrats-popup";
 
-export function StartCompletePopup() {
-  console.log('StartCompletePopup');
-  
-  // Select button and its child span
-  const buildAppButton = document.querySelector('button[aria-label="icon-copy"]');
-  const deployedCodeSpan = document.querySelector('button[aria-label="icon-copy"] .material-symbols-outlined');
-
-  if (!buildAppButton || !deployedCodeSpan) {
-    throw new Error('Could not find build app button or its children');
+export function startCompletePopup() {
+  const downloadButton = document.querySelector(
+    'button.MuiButton-containedPrimary[aria-label*="download"]'
+  ) as HTMLButtonElement | null;
+  if (!downloadButton) {
+    throw new Error('Download button not found in DOM');
   }
 
-  // Add click handlers to both elements
-  buildAppButton.addEventListener('click', (e) => {
-    console.log('Build app button clicked');
+  downloadButton.addEventListener('click', () => {
+    const container = document.createElement('div');
+    document.body.appendChild(container);
+    const root = createRoot(container);
+    root.render(<CongratsPopup />);
   });
-
-  deployedCodeSpan.addEventListener('click', (e) => {
-    console.log('Deployed code span clicked');
-  });
-
-
 }

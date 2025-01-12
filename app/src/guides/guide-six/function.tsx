@@ -1,13 +1,17 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { PopupSix } from './popup-six';
-import { StartCompletePopup } from '../guide-seven/function';
+import { startCompletePopup } from '../guide-seven/function';
 
 function handlePopup() {
   const buildAppButton = document.querySelector('button[aria-label="icon-copy"]');
-
   if (!buildAppButton) {
     throw new Error('Could not find export button');
+  }
+
+  const deployedCodeSpan = document.querySelector('button[aria-label="icon-copy"] .material-symbols-outlined');
+  if (!deployedCodeSpan) {
+    throw new Error('Could not find deployed code span');
   }
 
   const rect = buildAppButton.getBoundingClientRect();
@@ -21,7 +25,13 @@ function handlePopup() {
   const widget = createRoot(appContainer);
   widget.render(<PopupSix position={position}/>);
 
-  StartCompletePopup();
+  deployedCodeSpan.addEventListener('click', () => {
+    widget.unmount();
+    // wait for download Modal to appear
+    setTimeout(() => {
+      startCompletePopup();
+    }, 500);
+  });
 }
 
 function observeStatusBox(callbackFunction: () => void): MutationObserver {

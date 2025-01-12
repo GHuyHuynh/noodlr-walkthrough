@@ -23,7 +23,7 @@ export function PopupFive({ position }: PopupFiveProps) {
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
     borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 0,
+    borderBottomRightRadius: 1,
     boxShadow: 24,
     p: 3,
 
@@ -31,14 +31,14 @@ export function PopupFive({ position }: PopupFiveProps) {
     '&:after': {
       content: '""',
       position: 'absolute',
-      bottom: '-9px',
+      bottom: '-8px',
       left: 'calc(100% - 9px)',
       transform: 'translateX(-50%)',
       width: 0,
       height: 0,
-      borderLeft: '10px solid transparent',
-      borderRight: '10px solid transparent',
-      borderTop: '10px solid #fff',
+      borderLeft: '9px solid transparent',
+      borderRight: '9px solid transparent',
+      borderTop: '9px solid #fff',
     }
   };
 

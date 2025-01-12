@@ -29,7 +29,7 @@ export function PopupSix({ position }: PopupSixProps) {
       content: '""',
       position: 'absolute',
       bottom: '-9px',
-      left: '222px',
+      left: '220px',
       transform: 'translateX(-50%)',
       width: 0,
       height: 0,
