@@ -6,25 +6,30 @@ import { startGuideTwo } from '../guide-two/function';
 export function startGuideOne() {
   // Get Iris Classifier element
   const titanicSelectElements = document.querySelectorAll(".css-5gmxj4");
-  const targetElement = Array.from(titanicSelectElements).find(el => 
+  const selectorElement = Array.from(titanicSelectElements).find(el => 
     el.textContent?.includes('Titanic Survival Predictor')
   );
-  if (!targetElement) {
+  if (!selectorElement) {
     throw new Error('Failed to find Titanic Survial Predictor element');
   }
 
-  const rect = targetElement.getBoundingClientRect();
-  const position = {
+  const rect = selectorElement.getBoundingClientRect();
+  const selectorPosition = {
     top: rect.top,
     left: rect.left
   };
 
-  const appContainer = document.createElement('div');
-  targetElement.appendChild(appContainer);
-  const widget = createRoot(appContainer);
-  widget.render(<PopupOne position={position}/>);
+  const canvasTopbar = document.querySelector('.css-atal80');
+  if (!canvasTopbar) {
+    throw new Error('Canvas topbar not found');
+  }
 
-  targetElement.addEventListener('dblclick', () => {
+  const appContainer = document.createElement('div');
+  canvasTopbar.appendChild(appContainer);
+  const widget = createRoot(appContainer);
+  widget.render(<PopupOne position={selectorPosition}/>);
+
+  selectorElement.addEventListener('dblclick', () => {
     widget.unmount();
     startGuideTwo();
   });

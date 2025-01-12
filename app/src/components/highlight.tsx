@@ -53,7 +53,7 @@ const rectangleStyles = (
   translateLeft: number
 ) => emotionCss`
   ${baseStyles(position, width, height, translateTop, translateLeft)};
-  border-radius: 16px;
+  border-radius: 8px;
 `;
 
 export function Highlight({ position, width, height, type, translateTop, translateLeft }: HighlightProps) {

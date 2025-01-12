@@ -1,5 +1,5 @@
 import React from "react";
-import Snackbar, { SnackbarOrigin, SnackbarCloseReason } from '@mui/material/Snackbar';
+import Snackbar from '@mui/material/Snackbar';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
@@ -20,7 +20,6 @@ export function CongratsPopup() {
     boxShadow: 6,
     p: 1,
   };
-
 
   return (
     <Box sx={{ width: 500 }}>

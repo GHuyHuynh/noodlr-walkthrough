@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import { Highlight } from '../../components/highlight';
 
 // Position of the titanic selector element
@@ -24,7 +23,7 @@ export function PopupOne({ position }: PopupOneProps) {
   const style = {
     // Make the model appear on top of the selector element
     position: 'absolute',
-    top: position.top,
+    top: position.top - 15,
     left: position.left,
     transform: 'translateY(-100%)',
     width: 400,
@@ -52,14 +51,14 @@ export function PopupOne({ position }: PopupOneProps) {
     <div>
       <Button 
         onClick={handleOpen}
-        variant='outlined'
+        variant='contained'
+        sx={{
+          marginTop: 1,
+          marginBottom: 2,
+          marginLeft: 1,
+        }}
       >
-        <PlayArrowIcon 
-          sx={{ 
-            transform: 'rotate(180deg)' 
-          }} 
-        />
-        Let's create your first model!
+        Let's create your first AI model!
       </Button>
 
       <Modal
@@ -71,10 +70,10 @@ export function PopupOne({ position }: PopupOneProps) {
         <>
           <Highlight 
             position={position}
-            width={150}
-            height={40}
+            width={200}
+            height={25}
             type='rectangle'
-            translateTop={10}
+            translateTop={0}
             translateLeft={0}
           />
           <Box sx={style}>
