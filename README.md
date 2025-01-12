@@ -1,8 +1,7 @@
 # Noodlr Walkthrough
 
 ## Demo
-
-
+https://github.com/user-attachments/assets/afad1f8e-9c63-4ae2-8858-df1b0f02495f
 
 ## Description
 A Chrome extension that adds walk-through functionality to noodlr.ai to help first-time users understand the platform's AI model application building capabilities.
